@@ -12,7 +12,10 @@ spec:
     name: jayne-flask-app
     env:
     - name: MYSQL_ROOT_PASSWORD
-      value: password123!
+      valueFrom: 
+        secretKeyRef:
+          name: db-cred
+          key: MYSQL_ROOT_PASSWORD
 ---
 apiVersion: v1
 #service

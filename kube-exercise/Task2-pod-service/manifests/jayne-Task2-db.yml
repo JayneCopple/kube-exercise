@@ -15,7 +15,11 @@ spec:
 #envirpnment variable for root password for DB
     env:
     - name: MYSQL_ROOT_PASSWORD
-      value: password123!
+      valueFrom:
+        secretKeyRef:
+          name: db-cred
+          key: MYSQL_ROOT_PASSWORD
+
 ---
 apiVersion: v1
 #define service details
